@@ -1,7 +1,13 @@
 package com.johnnycarlos.abc_simple;
 
+import java.io.IOException;
+
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
@@ -10,14 +16,38 @@ import android.widget.ImageView;
 
 public class MainActivity extends Activity {
 	
-	private alphabet currentLetter = alphabet.A;
-	private enum alphabet { A, B, C }
+	private int currentLetter = R.drawable.a;
+	
+	SoundPool soundPool;
+    int soundA = -1;
+    int soundB = -1;
+    int soundC = -1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
+        
+		
+		try{
+            AssetManager assetManager = getAssets();
+            AssetFileDescriptor descriptor = assetManager.openFd("DoYouKnowWhatSharksDo.ogg");
+            soundA = soundPool.load(descriptor, 1);
+            
+            descriptor = assetManager.openFd("WeEatChu.ogg");
+            soundB = soundPool.load(descriptor, 1);
+
+            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            soundC = soundPool.load(descriptor, 1);
+            
+        } catch(IOException e) {
+            Log.d("Shark", e.getMessage());
+            //textView.setText("Could not load sound file from asset, " + e.getMessage());
+        }
+		
+		
 		runGame();
 		
 	}
@@ -31,19 +61,19 @@ public class MainActivity extends Activity {
         imageView.setOnClickListener(new OnClickListener() {
         
         	public void onClick(View v) {
-        		
-        		int currentLetterImage = R.drawable.a;
-        		
+        		        		
         		switch (currentLetter){
-  				    case A:  
-  				        currentLetter = alphabet.B;
-  				        currentLetterImage = R.drawable.b;
+  				    case R.drawable.a:  
+  				        currentLetter = R.drawable.b;
+  		                if(soundA != -1){
+  	                        soundPool.play(soundA, 1, 1, 0, 0, 1);
+  	                    }
 				    	break;
-				    case B:  
-				        currentLetter = alphabet.A;
-				        currentLetterImage = R.drawable.a;
+				    case R.drawable.b:  
+				        currentLetter = R.drawable.c;
 			    		break;
-				    case C:
+				    case R.drawable.c:  
+                        currentLetter = R.drawable.a;
 					    break;
 				    default:
 					    break;        		        		
@@ -51,7 +81,7 @@ public class MainActivity extends Activity {
         		
             	Log.d("logging", "Inside runGame Listener!");
                 Drawable nextImage;      
-                nextImage = getResources().getDrawable( currentLetterImage );
+                nextImage = getResources().getDrawable( currentLetter );
                 imageView.setImageDrawable(nextImage);
             
         	}
