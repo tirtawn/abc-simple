@@ -2,9 +2,12 @@ package com.johnnycarlos.abc_simple;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 
 public class MainActivity extends Activity {
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,4 +22,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	public void aImageClicked(View view) {  
+		 Log.d("logging", "Letter A was clicked!");
+    } 
+	
 }
