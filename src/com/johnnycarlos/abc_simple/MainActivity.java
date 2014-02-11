@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.res.AssetFileDescriptor;
@@ -15,79 +16,98 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity {
-	
-	private int currentLetter = R.drawable.a;
-	
+    
+    int a = -1;
+    int b = -1;
+    int c = -1;
+	private int currentImage = R.drawable.splash;
+    private int currentSound;
 	SoundPool soundPool;
-    int soundA = -1;
-    int soundB = -1;
-    int soundC = -1;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		
+	    super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_main);
 
 		soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
+		
+		loadSoundFiles();
+				
+        currentSound = a;
         
-		
-		try{
-            AssetManager assetManager = getAssets();
-            AssetFileDescriptor descriptor = assetManager.openFd("DoYouKnowWhatSharksDo.ogg");
-            soundA = soundPool.load(descriptor, 1);
-            
-            descriptor = assetManager.openFd("WeEatChu.ogg");
-            soundB = soundPool.load(descriptor, 1);
-
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
-            soundC = soundPool.load(descriptor, 1);
-            
-        } catch(IOException e) {
-            Log.d("Shark", e.getMessage());
-            //textView.setText("Could not load sound file from asset, " + e.getMessage());
-        }
-		
-		
 		runGame();
 		
 	}
 
+	
     private void runGame(){
 
-    	// Load image for letter A
         final ImageView imageView = (ImageView)findViewById(R.id.main_image_id);
 
-        // Set a listener and change to letter B when clicked
         imageView.setOnClickListener(new OnClickListener() {
         
         	public void onClick(View v) {
-        		        		
-        		switch (currentLetter){
-  				    case R.drawable.a:  
-  				        currentLetter = R.drawable.b;
-  		                if(soundA != -1){
-  	                        soundPool.play(soundA, 1, 1, 0, 0, 1);
-  	                    }
-				    	break;
-				    case R.drawable.b:  
-				        currentLetter = R.drawable.c;
-			    		break;
-				    case R.drawable.c:  
-                        currentLetter = R.drawable.a;
-					    break;
-				    default:
-					    break;        		        		
-        		}
-        		
-            	Log.d("logging", "Inside runGame Listener!");
-                Drawable nextImage;      
-                nextImage = getResources().getDrawable( currentLetter );
-                imageView.setImageDrawable(nextImage);
-            
+
+        	    setFiles();
+        	    
+                if(currentSound != -1){
+                    soundPool.play(currentSound, 1, 1, 0, 0, 1);
+                }
+                           	
+                Drawable image;      
+                image = getResources().getDrawable( currentImage );
+                imageView.setImageDrawable(image);
+                
         	}
-        
+                	
         }); // end setOnClickListener
-        
+
     } // end runGame
+
+    private void setFiles(){
+
+        switch (currentImage){
+        case R.drawable.splash:  
+            currentImage = R.drawable.a;
+            currentSound  = a;
+            break;
+        case R.drawable.a:  
+            currentImage = R.drawable.b;
+            currentSound  = b;
+            break;
+        case R.drawable.b:  
+            currentImage = R.drawable.c;
+            currentSound  = c;
+            break;
+        case R.drawable.c:  
+            currentImage = R.drawable.a;
+            currentSound  = a;
+            break;
+        default:
+            break;    
+            
+       } // end switch
+
+    }
+    
+    private void loadSoundFiles(){
+        try{
+            AssetManager assetManager = getAssets();
+            AssetFileDescriptor descriptor = assetManager.openFd("DoYouKnowWhatSharksDo.ogg");
+            a = soundPool.load(descriptor, 1);
+            
+            descriptor = assetManager.openFd("WeEatChu.ogg");
+            b = soundPool.load(descriptor, 1);
+
+            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            c = soundPool.load(descriptor, 1);
+            
+        } catch(IOException e) {
+            Log.d("Sound Pool", e.getMessage());
+        }
+
+    }
 
 } // end class
