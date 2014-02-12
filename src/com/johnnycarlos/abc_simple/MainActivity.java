@@ -1,7 +1,6 @@
 package com.johnnycarlos.abc_simple;
 
 import java.io.IOException;
-
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -14,15 +13,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-
 public class MainActivity extends Activity {
     
-    int a, b, c, d, e, f, g, h, i, j, k, l, m;
-    int n, o, p, q, r, s, t, u, v, w, x, y, z;
+    private int a, b, c, d, e, f, g, h, i, j, k, l, m;
+    private int n, o, p, q, r, s, t, u, v, w, x, y, z;
     
     private int currentImage;
     private int currentSound;
-    SoundPool soundPool;
+    private SoundPool soundPool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +33,18 @@ public class MainActivity extends Activity {
 
         loadSoundFiles();
 		
+        currentImage = R.drawable.splash;  // splash screen
+        
         currentSound = a;
-        currentImage = R.drawable.splash;
+        
         runGame();  
 
     } 
 
-    
+    /**
+     * This is the main game method.  It loads the first graphic, registers a click listener
+     * that displays the next letter and plays the corresponding sound file.
+     */
     private void runGame(){
 
         final ImageView imageView = (ImageView)findViewById(R.id.main_image_id);
@@ -50,21 +53,26 @@ public class MainActivity extends Activity {
         
             public void onClick(View v) {
 
-        	    setFiles();
-   
-                Drawable image;      
-                image = getResources().getDrawable( currentImage );
+        	    setImageAndSoundFiles(); 
+                
+        	    // Draw the current letter
+                Drawable image = getResources().getDrawable( currentImage );
                 imageView.setImageDrawable(image);
 
+                // Play the current sound
                 soundPool.play(currentSound, 1, 1, 0, 0, 1);
-
             }
                 	
         }); // end setOnClickListener
 
     } // end runGame
-
-    private void setFiles(){
+    
+    /**
+     * This method sets the sound and graphic files.
+     * It looks at the global variables currentImage and currentSound, and
+     * sets them to the next letter in the alphabet.
+     */
+    private void setImageAndSoundFiles(){
 
         switch (currentImage){
         case R.drawable.splash:  
@@ -183,90 +191,94 @@ public class MainActivity extends Activity {
     }
     
     //TODO:  Put this in a loop or a hash or something
+    /**
+     * This method loads all the sound files into global integers(a,b,c, etc) that represent
+     * their location in the soundPool.
+     */
     private void loadSoundFiles(){
         try{
             AssetManager assetManager = getAssets();
-            AssetFileDescriptor descriptor = assetManager.openFd("DoYouKnowWhatSharksDo.ogg");
+            AssetFileDescriptor descriptor = assetManager.openFd("a.ogg");
             a = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("b.ogg");
             b = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("c.ogg");
             c = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("d.ogg");
             d = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("e.ogg");
             e = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("f.ogg");
             f = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("g.ogg");
             g = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("h.ogg");
             h = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("i.ogg");
             i = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("j.ogg");
             j = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("k.ogg");
             k = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("l.ogg");
             l = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("m.ogg");
             m = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("n.ogg");
             n = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("o.ogg");
             o = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("p.ogg");
             p = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("q.ogg");
             q = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("r.ogg");
             r = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("s.ogg");
             s = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("t.ogg");
             t = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("u.ogg");
             u = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("v.ogg");
             v = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("w.ogg");
             w = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("x.ogg");
             x = soundPool.load(descriptor, 1);
 
-            descriptor = assetManager.openFd("YouTasteGooood.ogg");
+            descriptor = assetManager.openFd("y.ogg");
             y = soundPool.load(descriptor, 1);
             
-            descriptor = assetManager.openFd("WeEatChu.ogg");
+            descriptor = assetManager.openFd("z.ogg");
             z = soundPool.load(descriptor, 1);
             
         } 
         catch(IOException e) {
-            Log.d("loadSoundFiles Exception:", e.getMessage());
+            Log.d("loadSoundFiles Exception:", e.toString());
         }
     }
 
