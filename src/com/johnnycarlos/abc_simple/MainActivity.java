@@ -53,9 +53,9 @@ public class MainActivity extends Activity {
         
             public void onClick(View v) {
 
-        	    setImageAndSoundFiles(); 
+                setImageAndSoundFiles(); 
                 
-        	    // Draw the current letter
+                // Draw the current letter
                 Drawable image = getResources().getDrawable( currentImage );
                 imageView.setImageDrawable(image);
 
@@ -278,7 +278,7 @@ public class MainActivity extends Activity {
             
         } 
         catch(IOException e) {
-            Log.d("loadSoundFiles Exception:", e.toString());
+           Log.d("loadSoundFiles Exception:", e.toString());
         }
     }
 
