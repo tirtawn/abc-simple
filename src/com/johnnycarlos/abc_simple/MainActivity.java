@@ -30,6 +30,7 @@ GestureDetector.OnDoubleTapListener{
     private int currentSound;
     private SoundPool soundPool;
     
+    private ImageView imageView;
     
     // Called when the activity is first created. 
     @Override
@@ -61,7 +62,7 @@ GestureDetector.OnDoubleTapListener{
      */
     private void runGame(){
 
-        final ImageView imageView = (ImageView)findViewById(R.id.main_image_id);
+        imageView = (ImageView)findViewById(R.id.main_image_id);
 /*
         imageView.setOnClickListener(new OnClickListener() {
         
@@ -343,12 +344,23 @@ GestureDetector.OnDoubleTapListener{
     @Override
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
+        
+        setImageAndSoundFiles(); 
+        
+        // Draw the current letter
+        Drawable image = getResources().getDrawable( currentImage );
+        imageView.setImageDrawable(image);
+
+        // Play the current sound
+        soundPool.play(currentSound, 1, 1, 0, 0, 1);
+
+        
         return true;
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());
+        Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());        
         return true;
     }
 
@@ -358,5 +370,14 @@ GestureDetector.OnDoubleTapListener{
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         return true;
     }
-}
+
+    public void showNextImage(){
+        
+    }
+    
+    public void showPreviousImage(){
+        
+    }
+    
+} // end class
 
