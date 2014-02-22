@@ -12,8 +12,6 @@ import android.support.v4.view.GestureDetectorCompat;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity implements 
@@ -53,41 +51,16 @@ GestureDetector.OnDoubleTapListener{
         
         currentSound = a;
         
-        runGame();
+        imageView = (ImageView)findViewById(R.id.main_image_id);
+
     }
 
-    /**
-     * This is the main game method.  It loads the first graphic, registers a click listener
-     * that displays the next letter and plays the corresponding sound file.
-     */
-    private void runGame(){
-
-        imageView = (ImageView)findViewById(R.id.main_image_id);
-/*
-        imageView.setOnClickListener(new OnClickListener() {
-        
-            public void onClick(View v) {
-
-                setImageAndSoundFiles(); 
-                
-                // Draw the current letter
-                Drawable image = getResources().getDrawable( currentImage );
-                imageView.setImageDrawable(image);
-
-                // Play the current sound
-                soundPool.play(currentSound, 1, 1, 0, 0, 1);
-            }
-                    
-        }); // end setOnClickListener
-*/
-    } // end runGame
-    
     /**
      * This method sets the sound and graphic files.
      * It looks at the global variables currentImage and currentSound, and
      * sets them to the next letter in the alphabet.
      */
-    private void setImageAndSoundFiles(){
+    private void setNextLetter(){
 
         switch (currentImage){
         case R.drawable.splash:  
@@ -345,15 +318,9 @@ GestureDetector.OnDoubleTapListener{
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
         
-        setImageAndSoundFiles(); 
+        setNextLetter(); 
         
-        // Draw the current letter
-        Drawable image = getResources().getDrawable( currentImage );
-        imageView.setImageDrawable(image);
-
-        // Play the current sound
-        soundPool.play(currentSound, 1, 1, 0, 0, 1);
-
+        playLetter();
         
         return true;
     }
@@ -370,13 +337,19 @@ GestureDetector.OnDoubleTapListener{
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         return true;
     }
-
-    public void showNextImage(){
+    
+    public void setPreviousLetter(){
         
     }
     
-    public void showPreviousImage(){
-        
+    public void playLetter(){
+        // Draw the current letter
+        Drawable image = getResources().getDrawable( currentImage );
+        imageView.setImageDrawable(image);
+
+        // Play the current sound
+        soundPool.play(currentSound, 1, 1, 0, 0, 1);
+
     }
     
 } // end class
