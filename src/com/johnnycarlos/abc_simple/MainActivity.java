@@ -19,6 +19,9 @@ GestureDetector.OnGestureListener,
 GestureDetector.OnDoubleTapListener{
 
     private static final String DEBUG_TAG = "Gestures";
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+    
     private GestureDetectorCompat mDetector; 
     
     private SoundImage soundImage;
@@ -188,10 +191,33 @@ GestureDetector.OnDoubleTapListener{
     }
 
     @Override
-    public boolean onFling(MotionEvent event1, MotionEvent event2, 
+    public boolean onFling(MotionEvent e1, MotionEvent e2, 
     float velocityX, float velocityY) {
-        Log.d(DEBUG_TAG, "onFling: " + event1.toString()+event2.toString());
-        return true;
+        Log.d(DEBUG_TAG, "onFling: " + e1.toString()+e2.toString());
+        if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE &&
+                Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            //From Right to Left
+            playNextLetter();
+            return true;
+        }  else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE &&
+                Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            //From Left to Right
+            playPreviousLetter();
+            return true;
+        }
+  
+        if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE &&
+               Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+            //From Bottom to Top
+            playNextLetter();
+            return true;
+        }  else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE &&
+               Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+            //From Top to Bottom
+            playPreviousLetter();
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -217,12 +243,13 @@ GestureDetector.OnDoubleTapListener{
      
         return true;
     }
+ 
 
     @Override
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
         
-        playNextLetter();
+        playPreviousLetter();
                 
         return true;
     }
@@ -237,6 +264,9 @@ GestureDetector.OnDoubleTapListener{
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
         Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
+        
+        playNextLetter();
+        
         return true;
     }
     
