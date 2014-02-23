@@ -20,15 +20,16 @@ GestureDetector.OnDoubleTapListener{
 
     private static final String DEBUG_TAG = "Gestures";
     private GestureDetectorCompat mDetector; 
-
-    private int a, b, c, d, e, f, g, h, i, j, k, l, m;
-    private int n, o, p, q, r, s, t, u, v, w, x, y, z;
     
-    private int currentImage;
-    private int currentSound;
+    private SoundImage soundImage;
+
     private SoundPool soundPool;
     
     private ImageView imageView;
+    
+    private SoundImage[] soundImages;
+    
+    private int count = -1;
     
     // Called when the activity is first created. 
     @Override
@@ -45,225 +46,126 @@ GestureDetector.OnDoubleTapListener{
         
         soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
 
-        loadSoundFiles();
-        
-        currentImage = R.drawable.splash;  // splash screen
-        
-        currentSound = a;
-        
+        loadSoundImages();
+       
         imageView = (ImageView)findViewById(R.id.main_image_id);
 
     }
 
-    /**
-     * This method sets the sound and graphic files.
-     * It looks at the global variables currentImage and currentSound, and
-     * sets them to the next letter in the alphabet.
-     */
-    private void setNextLetter(){
 
-        switch (currentImage){
-        case R.drawable.splash:  
-            currentImage = R.drawable.a;
-            currentSound = a;
-            break;
-        case R.drawable.a:  
-            currentImage = R.drawable.b;
-            currentSound = b;
-            break;
-        case R.drawable.b:  
-            currentImage = R.drawable.c;
-            currentSound = c;
-            break;
-        case R.drawable.c:  
-            currentImage = R.drawable.d;
-            currentSound = d;
-            break;
-        case R.drawable.d:  
-            currentImage = R.drawable.e;
-            currentSound = e;
-            break;
-        case R.drawable.e:  
-            currentImage = R.drawable.f;
-            currentSound = f;
-            break;
-        case R.drawable.f:  
-            currentImage = R.drawable.g;
-            currentSound = g;
-            break;
-        case R.drawable.g:  
-            currentImage = R.drawable.h;
-            currentSound = h;
-            break;
-        case R.drawable.h:  
-            currentImage = R.drawable.i;
-            currentSound = i;
-            break;
-        case R.drawable.i:
-            currentImage = R.drawable.j;
-            currentSound = j;
-            break;
-        case R.drawable.j:
-            currentImage = R.drawable.k;
-            currentSound = k;
-            break;
-        case R.drawable.k:
-            currentImage = R.drawable.l;
-            currentSound = l;
-            break;
-        case R.drawable.l:
-            currentImage = R.drawable.m;
-            currentSound = m;
-            break;
-        case R.drawable.m:
-            currentImage = R.drawable.n;
-            currentSound = n;
-            break;
-        case R.drawable.n:
-            currentImage = R.drawable.o;
-            currentSound = o;
-            break;
-        case R.drawable.o:
-            currentImage = R.drawable.p;
-            currentSound = p;
-            break;
-        case R.drawable.p:
-            currentImage = R.drawable.q;
-            currentSound = q;
-            break;
-        case R.drawable.q:
-            currentImage = R.drawable.r;
-            currentSound = r;
-            break;
-        case R.drawable.r:
-            currentImage = R.drawable.s;
-            currentSound = s;
-            break;
-        case R.drawable.s:
-            currentImage = R.drawable.t;
-            currentSound = t;
-            break;
-        case R.drawable.t:
-            currentImage = R.drawable.u;
-            currentSound = u;
-            break;
-        case R.drawable.u:
-            currentImage = R.drawable.v;
-            currentSound = v;
-            break;
-        case R.drawable.v: 
-            currentImage = R.drawable.w;
-            currentSound = w;
-            break;
-        case R.drawable.w:
-            currentImage = R.drawable.x;
-            currentSound = x;
-            break;
-        case R.drawable.x:
-            currentImage = R.drawable.y;
-            currentSound = y;
-            break;
-        case R.drawable.y:
-            currentImage = R.drawable.z;
-            currentSound = z;
-            break;
-        case R.drawable.z:
-            currentImage = R.drawable.a;
-            currentSound = a;
-            break;
-        default:
-            break;    
-            
-       } // end switch
-
-    }
-
-    //TODO:  Put this in a loop or a hash or something
     /**
      * This method loads all the sound files into global integers(a,b,c, etc) that represent
      * their location in the soundPool.
      */
-    private void loadSoundFiles(){
+    private void loadSoundImages(){
         try{
             AssetManager assetManager = getAssets();
-            AssetFileDescriptor descriptor = assetManager.openFd("a.ogg");
-            a = soundPool.load(descriptor, 1);
+            AssetFileDescriptor descriptor;
             
+            descriptor = assetManager.openFd("a.ogg");
+            SoundImage a = new SoundImage( soundPool.load(descriptor, 1), R.drawable.a);
+
+
             descriptor = assetManager.openFd("b.ogg");
-            b = soundPool.load(descriptor, 1);
+            SoundImage b = new SoundImage( soundPool.load(descriptor, 1), R.drawable.b);
 
             descriptor = assetManager.openFd("c.ogg");
-            c = soundPool.load(descriptor, 1);
+            SoundImage c = new SoundImage( soundPool.load(descriptor, 1), R.drawable.c);
+
             
             descriptor = assetManager.openFd("d.ogg");
-            d = soundPool.load(descriptor, 1);
+            SoundImage d = new SoundImage( soundPool.load(descriptor, 1), R.drawable.d);
+
 
             descriptor = assetManager.openFd("e.ogg");
-            e = soundPool.load(descriptor, 1);
+            SoundImage e = new SoundImage( soundPool.load(descriptor, 1), R.drawable.e);
+
             
             descriptor = assetManager.openFd("f.ogg");
-            f = soundPool.load(descriptor, 1);
+            SoundImage f = new SoundImage( soundPool.load(descriptor, 1), R.drawable.f);
+
 
             descriptor = assetManager.openFd("g.ogg");
-            g = soundPool.load(descriptor, 1);
+            SoundImage g = new SoundImage( soundPool.load(descriptor, 1), R.drawable.g);
+
             
             descriptor = assetManager.openFd("h.ogg");
-            h = soundPool.load(descriptor, 1);
+            SoundImage h = new SoundImage( soundPool.load(descriptor, 1), R.drawable.h);
+
 
             descriptor = assetManager.openFd("i.ogg");
-            i = soundPool.load(descriptor, 1);
+            SoundImage i = new SoundImage( soundPool.load(descriptor, 1), R.drawable.i);
+
             
             descriptor = assetManager.openFd("j.ogg");
-            j = soundPool.load(descriptor, 1);
+            SoundImage j = new SoundImage( soundPool.load(descriptor, 1), R.drawable.j);
+
 
             descriptor = assetManager.openFd("k.ogg");
-            k = soundPool.load(descriptor, 1);
+            SoundImage k = new SoundImage( soundPool.load(descriptor, 1), R.drawable.k);
+
             
             descriptor = assetManager.openFd("l.ogg");
-            l = soundPool.load(descriptor, 1);
+            SoundImage l = new SoundImage( soundPool.load(descriptor, 1), R.drawable.l);
+
 
             descriptor = assetManager.openFd("m.ogg");
-            m = soundPool.load(descriptor, 1);
+            SoundImage m = new SoundImage( soundPool.load(descriptor, 1), R.drawable.m);
+
             
             descriptor = assetManager.openFd("n.ogg");
-            n = soundPool.load(descriptor, 1);
+            SoundImage n = new SoundImage( soundPool.load(descriptor, 1), R.drawable.n);
+
 
             descriptor = assetManager.openFd("o.ogg");
-            o = soundPool.load(descriptor, 1);
+            SoundImage o = new SoundImage( soundPool.load(descriptor, 1), R.drawable.o);
+
             
             descriptor = assetManager.openFd("p.ogg");
-            p = soundPool.load(descriptor, 1);
+            SoundImage p = new SoundImage( soundPool.load(descriptor, 1), R.drawable.p);
+
 
             descriptor = assetManager.openFd("q.ogg");
-            q = soundPool.load(descriptor, 1);
+            SoundImage q = new SoundImage( soundPool.load(descriptor, 1), R.drawable.q);
+
             
             descriptor = assetManager.openFd("r.ogg");
-            r = soundPool.load(descriptor, 1);
+            SoundImage r = new SoundImage( soundPool.load(descriptor, 1), R.drawable.r);
+
 
             descriptor = assetManager.openFd("s.ogg");
-            s = soundPool.load(descriptor, 1);
+            SoundImage s = new SoundImage( soundPool.load(descriptor, 1), R.drawable.s);
+
             
             descriptor = assetManager.openFd("t.ogg");
-            t = soundPool.load(descriptor, 1);
+            SoundImage t = new SoundImage( soundPool.load(descriptor, 1), R.drawable.t);
+
 
             descriptor = assetManager.openFd("u.ogg");
-            u = soundPool.load(descriptor, 1);
+            SoundImage u = new SoundImage( soundPool.load(descriptor, 1), R.drawable.u);
+
             
             descriptor = assetManager.openFd("v.ogg");
-            v = soundPool.load(descriptor, 1);
+            SoundImage v = new SoundImage( soundPool.load(descriptor, 1), R.drawable.v);
+
 
             descriptor = assetManager.openFd("w.ogg");
-            w = soundPool.load(descriptor, 1);
+            SoundImage w = new SoundImage( soundPool.load(descriptor, 1), R.drawable.w);
+
             
             descriptor = assetManager.openFd("x.ogg");
-            x = soundPool.load(descriptor, 1);
+            SoundImage x = new SoundImage( soundPool.load(descriptor, 1), R.drawable.x);
+
 
             descriptor = assetManager.openFd("y.ogg");
-            y = soundPool.load(descriptor, 1);
+            SoundImage y = new SoundImage( soundPool.load(descriptor, 1), R.drawable.y);
+
             
             descriptor = assetManager.openFd("z.ogg");
-            z = soundPool.load(descriptor, 1);
-            
+            SoundImage z = new SoundImage( soundPool.load(descriptor, 1), R.drawable.z);
+
+            soundImages = new SoundImage[]{ a, b, c, d, e, f, g, h, i, j, k, l, m,
+                                            n, o, p, q, r, s, t, u, v, w, x, y, z };
         } 
         catch(IOException e) {
            Log.d("loadSoundFiles Exception:", e.toString());
@@ -275,6 +177,7 @@ GestureDetector.OnDoubleTapListener{
     public boolean onTouchEvent(MotionEvent event){ 
         this.mDetector.onTouchEvent(event);
         // Be sure to call the superclass implementation
+        
         return super.onTouchEvent(event);
     }
 
@@ -311,6 +214,7 @@ GestureDetector.OnDoubleTapListener{
     @Override
     public boolean onSingleTapUp(MotionEvent event) {
         Log.d(DEBUG_TAG, "onSingleTapUp: " + event.toString());
+     
         return true;
     }
 
@@ -318,10 +222,8 @@ GestureDetector.OnDoubleTapListener{
     public boolean onDoubleTap(MotionEvent event) {
         Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
         
-        setNextLetter(); 
-        
-        playLetter();
-        
+        playNextLetter();
+                
         return true;
     }
 
@@ -338,18 +240,37 @@ GestureDetector.OnDoubleTapListener{
         return true;
     }
     
-    public void setPreviousLetter(){
+    public void playPreviousLetter(){
         
-    }
-    
-    public void playLetter(){
+        count--;
+        if( count < 0){
+            count = 25;
+        }
+        soundImage = soundImages[count];
+        
         // Draw the current letter
-        Drawable image = getResources().getDrawable( currentImage );
+        Drawable image = getResources().getDrawable( soundImage.imageNumber );
         imageView.setImageDrawable(image);
 
         // Play the current sound
-        soundPool.play(currentSound, 1, 1, 0, 0, 1);
+        soundPool.play(soundImage.poolNumber, 1, 1, 0, 0, 1);
+    }
+    
+    public void playNextLetter(){
+        
+        count++;
+        if( count == 26){
+            count = 0;
+        }
+        soundImage = soundImages[count];
+        
+        // Draw the current letter
+        Drawable image = getResources().getDrawable( soundImage.imageNumber );
+        imageView.setImageDrawable(image);
 
+        // Play the current sound
+        soundPool.play(soundImage.poolNumber, 1, 1, 0, 0, 1);
+ 
     }
     
 } // end class
