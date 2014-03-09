@@ -32,7 +32,7 @@ GestureDetector.OnDoubleTapListener{
     
     private SoundImage[] soundImages;
     
-    private int count = -1;
+    private int index = -1; 
     
     // Called when the activity is first created. 
     @Override
@@ -170,7 +170,7 @@ GestureDetector.OnDoubleTapListener{
             soundImages = new SoundImage[]{ a, b, c, d, e, f, g, h, i, j, k, l, m,
                                             n, o, p, q, r, s, t, u, v, w, x, y, z };
         } 
-        catch(IOException e) {
+        catch(Exception e) {
            Log.d("loadSoundFiles Exception:", e.toString());
         }
     }
@@ -272,11 +272,11 @@ GestureDetector.OnDoubleTapListener{
     
     public void playPreviousLetter(){
         
-        count--;
-        if( count < 0){
-            count = 25;
+        index--;
+        if( index < 0){
+            index = 25;
         }
-        soundImage = soundImages[count];
+        soundImage = soundImages[index];
         
         // Draw the current letter
         Drawable image = getResources().getDrawable( soundImage.imageNumber );
@@ -288,11 +288,11 @@ GestureDetector.OnDoubleTapListener{
     
     public void playNextLetter(){
         
-        count++;
-        if( count == 26){
-            count = 0;
+        index++;
+        if( index == 26){
+            index = 0;
         }
-        soundImage = soundImages[count];
+        soundImage = soundImages[index];
         
         // Draw the current letter
         Drawable image = getResources().getDrawable( soundImage.imageNumber );
