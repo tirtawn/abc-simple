@@ -14,7 +14,10 @@
    id="svg3042"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="hi_res_icon.svg">
+   sodipodi:docname="hi_res_icon.svg"
+   inkscape:export-filename="/home/johnreed/Desktop/abc-simple/ic_launcher-web.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs3044" />
   <sodipodi:namedview
@@ -55,6 +58,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      transform="translate(0,464)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#04000f;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3008"
+       width="593.16156"
+       height="586.69659"
+       x="-37.173607"
+       y="-464.34937" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot3021-9"
