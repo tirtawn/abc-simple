@@ -1,8 +1,11 @@
 package com.johnnycarlos.abc_simple;
 
 import java.io.IOException;
+import com.johnnycarlos.abc_simple.R;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.res.AssetFileDescriptor;
@@ -15,8 +18,9 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity implements 
-GestureDetector.OnGestureListener,
-GestureDetector.OnDoubleTapListener{
+    GestureDetector.OnGestureListener,
+    GestureDetector.OnDoubleTapListener,
+    MediaPlayer.OnPreparedListener {
 
     private static final String DEBUG_TAG = "Gestures";
     private static final int SWIPE_MIN_DISTANCE = 120;
@@ -34,25 +38,66 @@ GestureDetector.OnDoubleTapListener{
     
     private int index = -1; 
     
-    // Called when the activity is first created. 
+    MediaPlayer mediaPlayer = null;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
-        // Instantiate the gesture detector with the
-        // application context and an implementation of
-        // GestureDetector.OnGestureListener
+
+        loadBackgroundMusic();
+        
+        loadSoundImages();
+        
+        imageView = (ImageView)findViewById(R.id.main_image_id);
+        
         mDetector = new GestureDetectorCompat(this,this);
-        // Set the gesture detector as the double tap
-        // listener.
+
         mDetector.setOnDoubleTapListener(this);
         
-        soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
+    }
 
-        loadSoundImages();
-       
-        imageView = (ImageView)findViewById(R.id.main_image_id);
+    @Override
+    protected void onResume() {
+        super.onResume();        
+        mediaPlayer.start();
+    }
+    
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mediaPlayer.pause();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onStop();
+        mediaPlayer.release();
+        mediaPlayer = null;
+    }
+   
+    @Override
+    public void onPrepared(MediaPlayer mediaPlayer) {
+        this.mediaPlayer.start();   
+    }
+    
+    private void loadBackgroundMusic(){
+
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        
+        try {
+            mediaPlayer.setDataSource(this, Uri.parse("android.resource://com.johnnycarlos.abc_simple/" +
+                                                       R.raw.background_music));
+        } catch (IOException e) {
+            Log.d("MediaPlayer Exception:", e.toString());
+        }
+        
+        mediaPlayer.setLooping(true);
+        mediaPlayer.setVolume((float).3, (float).3);
+        mediaPlayer.prepareAsync();
     }
 
 
@@ -62,6 +107,9 @@ GestureDetector.OnDoubleTapListener{
      */
     private void loadSoundImages(){
         try{
+            
+            soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
+            
             AssetManager assetManager = getAssets();
             AssetFileDescriptor descriptor;
             
@@ -179,8 +227,6 @@ GestureDetector.OnDoubleTapListener{
     @Override 
     public boolean onTouchEvent(MotionEvent event){ 
         this.mDetector.onTouchEvent(event);
-        // Be sure to call the superclass implementation
-        
         return super.onTouchEvent(event);
     }
 
@@ -222,32 +268,26 @@ GestureDetector.OnDoubleTapListener{
 
     @Override
     public void onLongPress(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onLongPress: " + event.toString()); 
     }
 
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
              float distanceY) {
-        Log.d(DEBUG_TAG, "onScroll: " + e1.toString()+e2.toString());
         return true;
     }
 
     @Override
     public void onShowPress(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onShowPress: " + event.toString());
     }
 
     @Override
-    public boolean onSingleTapUp(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onSingleTapUp: " + event.toString());
-     
+    public boolean onSingleTapUp(MotionEvent event) {     
         return true;
     }
  
 
     @Override
     public boolean onDoubleTap(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onDoubleTap: " + event.toString());
         
         playPreviousLetter();
                 
@@ -255,15 +295,13 @@ GestureDetector.OnDoubleTapListener{
     }
 
     @Override
-    public boolean onDoubleTapEvent(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onDoubleTapEvent: " + event.toString());        
+    public boolean onDoubleTapEvent(MotionEvent event) {      
         return true;
     }
 
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent event) {
-        Log.d(DEBUG_TAG, "onSingleTapConfirmed: " + event.toString());
         
         playNextLetter();
         
