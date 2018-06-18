@@ -3,15 +3,21 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-    
 
-<ImageView 
-    android:id="@+id/main_image_id"
-    android:contentDescription="@string/content_description"
-    android:layout_width="fill_parent" 
-    android:layout_height="fill_parent" 
-    android:layout_gravity="center_horizontal" 
-    android:src="@drawable/splash" />
 
-    
+    <ImageView
+        android:id="@+id/main_image_id"
+        android:layout_width="fill_parent"
+        android:layout_height="474dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/content_description"
+        android:src="@drawable/splash" />
+
+    <Button
+        android:id="@+id/button_on_off_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/music_on_off" />
+
+
 </LinearLayout>

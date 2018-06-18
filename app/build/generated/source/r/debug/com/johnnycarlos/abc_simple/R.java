@@ -44,7 +44,8 @@ public final class R {
   }
   public static final class id {
     public static final int action_settings=0x7f030000;
-    public static final int main_image_id=0x7f030001;
+    public static final int button_on_off_music=0x7f030001;
+    public static final int main_image_id=0x7f030002;
   }
   public static final class layout {
     public static final int activity_main=0x7f040000;
@@ -59,6 +60,7 @@ public final class R {
     public static final int action_settings=0x7f070000;
     public static final int app_name=0x7f070001;
     public static final int content_description=0x7f070002;
+    public static final int music_on_off=0x7f070003;
   }
   public static final class style {
     public static final int AppBaseTheme=0x7f080000;

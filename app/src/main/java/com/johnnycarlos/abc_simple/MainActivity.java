@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+import android.widget.Button;
+import android.view.View;
 
 public class MainActivity extends Activity implements 
     GestureDetector.OnGestureListener,
@@ -35,6 +37,8 @@ public class MainActivity extends Activity implements
     private ImageView imageView;
     
     private SoundImage[] soundImages;
+    private Button onOffMusicButton;
+    private boolean musicToggle;
     
     private int index = -1; 
     
@@ -52,6 +56,25 @@ public class MainActivity extends Activity implements
         loadSoundImages();
         
         imageView = (ImageView)findViewById(R.id.main_image_id);
+        onOffMusicButton  = (Button) findViewById(R.id.button_on_off_music);
+
+        musicToggle = true;
+        onOffMusicButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Code here executes on main thread after user presses button
+                if (musicToggle)
+                {
+                    musicToggle = false;
+                    mediaPlayer.pause();
+                }
+                else
+                {
+                    musicToggle = true;
+                    mediaPlayer.start();
+                }
+
+            }
+        });
         
         mDetector = new GestureDetectorCompat(this,this);
 
@@ -73,6 +96,7 @@ public class MainActivity extends Activity implements
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         super.onStop();
         mediaPlayer.release();
         mediaPlayer = null;
@@ -95,7 +119,7 @@ public class MainActivity extends Activity implements
             Log.d("MediaPlayer Exception:", e.toString());
         }
         
-        mediaPlayer.setLooping(false);
+        mediaPlayer.setLooping(true);
         mediaPlayer.setVolume((float).3, (float).3);
         mediaPlayer.prepareAsync();
     }
@@ -219,7 +243,7 @@ public class MainActivity extends Activity implements
                                             n, o, p, q, r, s, t, u, v, w, x, y, z };
         } 
         catch(Exception e) {
-           Log.d("loadSoundFiles Exception:", e.toString());
+           Log.d("loadSoundFiles Ex:", e.toString());
         }
     }
     
