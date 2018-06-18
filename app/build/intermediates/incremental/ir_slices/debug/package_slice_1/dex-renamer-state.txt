@@ -1,4 +1,4 @@
-#Sun Jun 17 19:32:05 PDT 2018
-base.0=/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/transforms/dexMerger/debug/2
+#Sun Jun 17 20:52:28 PDT 2018
+base.0=/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/transforms/dexMerger/debug/21
 path.0=classes.dex
 renamed.0=classes.dex

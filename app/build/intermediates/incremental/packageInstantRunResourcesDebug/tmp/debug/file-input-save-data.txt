@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jun 17 19:32:03 PDT 2018
+#Sun Jun 17 20:52:27 PDT 2018
 17.baseType=DIRECTORY
 4.path=i.ogg
 25.base=/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/assets/debug

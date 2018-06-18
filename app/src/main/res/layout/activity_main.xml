@@ -5,6 +5,12 @@
     >
 
 
+    <Button
+        android:id="@+id/button_on_off_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/music_on_off" />
+
     <ImageView
         android:id="@+id/main_image_id"
         android:layout_width="fill_parent"
@@ -12,12 +18,6 @@
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/content_description"
         android:src="@drawable/splash" />
-
-    <Button
-        android:id="@+id/button_on_off_music"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/music_on_off" />
 
 
 </LinearLayout>
