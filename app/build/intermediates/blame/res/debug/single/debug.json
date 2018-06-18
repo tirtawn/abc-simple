@@ -1,0 +1,138 @@
+[
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/menu_main.xml.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_w.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/w.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_e.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/e.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_n.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/n.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_y.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/y.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_u.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/u.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_p.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/p.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_i.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/i.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_t.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/t.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_c.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/c.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_k.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/k.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_h.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/h.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_m.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/m.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_a.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/a.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_r.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/r.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_f.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/f.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_splash.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/splash.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_v.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/v.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_z.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/z.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_o.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/o.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_d.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/d.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_s.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/s.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/raw_background_music.ogg.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/raw/background_music.ogg"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_j.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/j.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_b.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/b.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_l.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/l.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_q.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/q.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_g.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/g.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_x.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/x.png"
+    },
+    {
+        "merged": "/Users/boy/AndroidStudioProjects/abc-simple/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/boy/AndroidStudioProjects/abc-simple/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    }
+]
